@@ -1,11 +1,10 @@
-package com.czpchen.Action;
+package com.czpchen.action;
 
 import java.io.File;
 
 import javax.servlet.ServletContext;
 
-
-import com.czpchen.Service.EleService;
+import com.czpchen.service.EleService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 

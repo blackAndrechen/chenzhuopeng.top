@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
           height: 100%;
           font-family: "微软雅黑";
           background-image: url(<%=basePath %>image/banner.jpg);
-          color:#FFFFFF;
+          color:#222123;
         }
 
         .contain{
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<%=basePath %>gxcjxy/home.jsp">C</a>
+			<a class="navbar-brand" href="<%=basePath %>login.jsp">C</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
 				<li><a href="<%=basePath %>gxcjxy/aboutme.jsp">关于</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="https://github.com/blackAndrechen">view code</a></li>
+				<li><a href="https://github.com/blackAndrechen/chenzhuopeng.top">view code</a></li>
 			</ul>
 		</div>
 	</div>
@@ -79,14 +79,11 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
     剩余电量为<span id="strong">${endEle}</span>
   </p>
   <p>根据该宿舍最近用电情况,平均每日用电<span>${aver}</span>度,预计<span id="strong">${stopDay}</span>天后将停电</p>
-<div id="main" style="width: 600px;height:400px;"></div>
+<div id="main" style="width: 100%;height:400px;"></div>
 </center>
 </div>
 </center>
 
-<center>
-<div id="main" style="width: 600px;height:400px;"></div>
-</center>
     <script src="<%=basePath %>js/jquery/jquery-3.3.1.min.js"></script>
     <script src="<%=basePath %>js/bootstrap/js/bootstrap.min.js"></script>
   	<script type="text/javascript">
@@ -97,12 +94,12 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
         // 指定图表的配置项和数据
         var option = {
         		textStyle:{
-                    color:'#FFFFFF',
+                    color:'#222123',
                   },
         		title: {
                      text: '用电趋势图',
                      textStyle:{
-                    	 color:'#FFFFFF',
+                    	 color:'#222123',
                     	 fontWeight:'bold',
                     	 align:'center'
                      }
@@ -125,6 +122,9 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
+        $(window).resize(function(){
+            myChart.resize();    
+         });
     </script>
 </body>
 </html>

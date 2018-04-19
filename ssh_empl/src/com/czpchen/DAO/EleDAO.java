@@ -1,4 +1,4 @@
-package com.czpchen.DAO;
+package com.czpchen.dao;
 
 import java.util.List;
 import java.util.Map;

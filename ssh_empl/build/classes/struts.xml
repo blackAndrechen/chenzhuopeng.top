@@ -5,14 +5,6 @@
 
 <struts>
     <package name="default" namespace="/" extends="struts-default">
-		 <action name="test" method="login" class="testAction">
-		 	<result name="success">/success.jsp</result>
-		 	<result name="error">/error.jsp</result>
-		 </action>
-		 <action name="testR" method="register" class="testAction">
-		 	<result name="success">/success.jsp</result>
-		 	<result name="error">/error.jsp</result>
-		 </action>
 		 
 		 <action name="query_ele" class="eleAction">
 		 	<result name="success">/gxcjxy/detail.jsp</result>
@@ -27,6 +19,12 @@
 		 <action name="create_table" method="create" class="uploadEleAction">
 		 	<result name="success">/success.jsp</result>
 		 	<result name="input">/error.jsp</result>
+		 </action>
+		 <!-- 管理员登录 -->
+		 <action name="login" class="loginAdmin">
+		 	<result name="login" type="redirect">/login.jsp</result>
+		 	<result name="goURL" type="redirect">${#session.goURL}</result>
+		 	<result name="home" type="redirect">/gxcjxy/home.jsp</result>
 		 </action>
     </package>
     

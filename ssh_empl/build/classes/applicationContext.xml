@@ -45,36 +45,31 @@
 		<tx:annotation-driven transaction-manager="transactionManager"/>
 		
 		<!-- util -->
-		<bean id="excelUtil" class="com.czpchen.Util.ReadExcel">
+		<bean id="excelUtil" class="com.czpchen.util.ReadExcel">
 		</bean>
 		
 		<!-- DAO -->
-		<bean id="testDAO" class="com.czpchen.DAO.TestDAO">
-			<property name="sessionFactory" ref="sessionFactory"></property>
-		</bean>
-		<bean id="eleDAO" class="com.czpchen.DAO.EleDAO">
+
+		<bean id="eleDAO" class="com.czpchen.dao.EleDAO">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 		
 		<!-- service -->
-		<bean id="testService" class="com.czpchen.Service.TestService">
-			<property name="testDAO" ref="testDAO"></property>
-		</bean>
-		<bean id="eleService" class="com.czpchen.Service.EleService">
+
+		<bean id="eleService" class="com.czpchen.service.EleService">
 			<property name="eleDAO" ref="eleDAO"></property>
 			<property name="excelUtil" ref="excelUtil"></property>
 		</bean>
 		
 		<!-- action -->
-		<bean id="testAction" class="com.czpchen.Action.TestAction" scope="prototype">
-			<property name="testService" ref="testService"></property>
-		</bean>
-		<bean id="eleAction" class="com.czpchen.Action.EleAction" scope="prototype">
+
+		<bean id="eleAction" class="com.czpchen.action.EleAction" scope="prototype">
 			<property name="eleService" ref="eleService"></property>
 		</bean>
-		<bean id="uploadEleAction" class="com.czpchen.Action.UploadEleAction" scope="prototype">
+		<bean id="uploadEleAction" class="com.czpchen.action.UploadEleAction" scope="prototype">
 			<property name="eleService" ref="eleService"></property>
 		</bean>
-		
+		<bean id="loginAdmin" class="com.czpchen.action.Login" scope="prototype">
+		</bean>
 		
 </beans>
