@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-4-13 12:46:18 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.czpchen.model.Dormessage" table="DORMESSAGE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="location" type="java.lang.String">
+            <column name="LOCATION" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="nums" type="int">
+            <column name="NUMS" />
+        </property>
+        <property name="remainele" type="int">
+            <column name="REMAINELE" />
+        </property>
+        <map name="ele" table="DORELE" lazy="false">
+            <key>
+                <column name="DORMESSAGE_ID" />
+            </key>
+            <index column="ELEDATE" type="java.lang.String"></index>
+            <element type="java.lang.String">
+                <column name="ELE" />
+            </element>
+        </map>
+    </class>
+</hibernate-mapping>
