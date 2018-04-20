@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.czpchen.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport implements SessionAware{
@@ -11,13 +12,14 @@ public class Login extends ActionSupport implements SessionAware{
 	private String password;
 	private static final long serialVersionUID = 1L;
 	protected Map<String ,Object> session;
+	private LoginService loginService;
 	
 	public String execute() {
 		if(username==null||password==null) {
 			return "login";
 		}
 		
-		if(username.equals("admin")&&password.equals("admin")) {
+		if(loginService.validate(username, password)) {
 			session.put("user", username);
 			if(session.get("goURL")==null) {
 				return "home";
@@ -50,4 +52,14 @@ public class Login extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> arg0) {
 		this.session=arg0;
 	}
+
+	public LoginService getLoginService() {
+		return loginService;
+	}
+
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
+	}
+	
+	
 }

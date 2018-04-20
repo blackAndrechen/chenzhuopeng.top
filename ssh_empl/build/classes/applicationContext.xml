@@ -34,6 +34,7 @@
 			<property name="mappingResources">
 				<list>  
 					<value>com/czpchen/model/Dormessage.hbm.xml</value>
+					<value>com/czpchen/model/User.hbm.xml</value>
 				</list>
 			</property>
 		</bean>
@@ -49,20 +50,23 @@
 		</bean>
 		
 		<!-- DAO -->
-
 		<bean id="eleDAO" class="com.czpchen.dao.EleDAO">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="userDao" class="com.czpchen.dao.UserDao">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 		
 		<!-- service -->
-
 		<bean id="eleService" class="com.czpchen.service.EleService">
 			<property name="eleDAO" ref="eleDAO"></property>
 			<property name="excelUtil" ref="excelUtil"></property>
 		</bean>
+		<bean id="loginService" class="com.czpchen.service.LoginService">
+			<property name="userDao" ref="userDao"></property>
+		</bean>
 		
 		<!-- action -->
-
 		<bean id="eleAction" class="com.czpchen.action.EleAction" scope="prototype">
 			<property name="eleService" ref="eleService"></property>
 		</bean>
@@ -70,6 +74,7 @@
 			<property name="eleService" ref="eleService"></property>
 		</bean>
 		<bean id="loginAdmin" class="com.czpchen.action.Login" scope="prototype">
+			<property name="loginService" ref="loginService"></property>
 		</bean>
 		
 </beans>
