@@ -102,8 +102,9 @@ public class EleService{
 		result.put("endEle", endEle);
 		//日期数组
 		List<String> temp1 = new ArrayList<String>();
-		for(int i=1;i<eledata.size();i++)
-			temp1.add((eledata.get(i).toString()));
+		for(int i=1;i<eledata.size();i++) {
+			temp1.add(eledata.get(i).toString());
+		}
 		result.put("date", temp1);
 		//电费数组
 		List<Integer> temp2 = new ArrayList<Integer>();

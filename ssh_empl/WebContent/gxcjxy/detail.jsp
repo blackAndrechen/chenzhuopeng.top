@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<%=basePath %>login.jsp">C</a>
+			<a class="navbar-brand" href="<%=basePath %>admin/home.jsp">C</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -108,10 +108,14 @@ String basePath = request.getScheme()+"://" +request.getServerName()+":" +reques
         	        type: 'category',
         	        data: date,
         	        name:'日期',
+        	        axisLabel:{
+        	        	interval:0,
+        	        	rotate:60,
+        	        }
         	    },
         	    yAxis: {
         	        type: 'value',
-        	        name:'用电/°C'
+        	        name:'用电/°C',
         	    },
         	    series: [{
         	        data: ele,
